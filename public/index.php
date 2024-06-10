@@ -5,4 +5,4 @@ require_once '../vendor/autoload.php';
 use Core\Teste;
 
 $teste = new Teste();
-$teste->foo();
+echo $teste->foo();
