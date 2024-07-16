@@ -38,7 +38,7 @@ class CategoryUnitTest extends TestCase
     public function testeDisabled()
     {
         $category = new Category(
-            name: 'New Cat',
+            name: 'New Cat'
         );
 
         $this->assertTrue($category->isActive);
@@ -72,8 +72,7 @@ class CategoryUnitTest extends TestCase
     {
         try {
             $category = new Category(
-            name: 'New Cat',
-            description: 'New desc',
+                description: 'New desc'
             );
 
             $this->assertTrue(false);
