@@ -42,7 +42,7 @@ class Category
             throw new EntityValidationException('nome inválido');
         }
 
-        if ($this->description == '' && (strlen($this->description) < 3 || strlen($this->description) > 255)) {
+        if ($this->description != '' && (strlen($this->description) < 3 || strlen($this->description) > 255)) {
             throw new EntityValidationException('descricão inválida');
         }
     }
