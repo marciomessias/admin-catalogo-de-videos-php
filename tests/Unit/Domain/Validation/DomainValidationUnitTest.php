@@ -32,4 +32,43 @@ class DomainValidationUnitTest extends TestCase
             $this->assertEquals('custom message error', $th->getMessage());
         }
     }
+
+    public function testStrMaxLength()
+    {
+        try {
+            $value = 'testtesttesttest';
+            DomainValidation::strMaxLength($value, 12);
+
+            $this->assertTrue(false);
+        } catch (\Throwable $th) {
+            $this->assertInstanceOf(EntityValidationException::class, $th);
+            $this->assertEquals('Length not should be greater than 12', $th->getMessage());
+        }
+    }
+
+    public function testStrMinLength()
+    {
+        try {
+            $value = 'test';
+            DomainValidation::strMinLength($value, 5);
+
+            $this->assertTrue(false);
+        } catch (\Throwable $th) {
+            $this->assertInstanceOf(EntityValidationException::class, $th);
+            $this->assertEquals('Length not should be less than 5', $th->getMessage());
+        }
+    }
+
+    public function testStrCanNullAndMaxLength()
+    {
+        try {
+            $value = 'testtesttesttest';
+            DomainValidation::strCanNullAndMaxLength($value, 12);
+
+            $this->assertTrue(false);
+        } catch (\Throwable $th) {
+            $this->assertInstanceOf(EntityValidationException::class, $th);
+            $this->assertEquals('Length not should be greater than 12', $th->getMessage());
+        }
+    }
 }
